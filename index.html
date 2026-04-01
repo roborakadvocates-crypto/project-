@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="RAK Law" />
+    
+    <!-- PWA Icons & Manifest -->
+    <link rel="icon" type="image/png" href="./logo.png" />
+    <link rel="shortcut icon" href="./logo.png" />
+    <link rel="apple-touch-icon" href="./logo.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <title>مكتب رأس الخيمة للمحاماة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              'landscape': {'raw': '(orientation: landscape)'},
+              'portrait': {'raw': '(orientation: portrait)'},
+            },
+            colors: {
+              gold: {
+                100: '#FBF5E5',
+                200: '#F3DFC1',
+                300: '#E6C288',
+                400: '#D4A04F',
+                500: '#B8862E', // Lux Gold
+                600: '#96681C',
+                700: '#754E12',
+                800: '#583A0E',
+                900: '#3D2808',
+              },
+              dark: {
+                800: '#1A1A1A',
+                900: '#0F0F0F',
+                950: '#050505', // Deep Black
+              }
+            },
+            fontFamily: {
+              sans: ['Cairo', 'Outfit', 'sans-serif'],
+              serif: ['Playfair Display', 'Cairo', 'serif'],
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'gold-gradient': 'linear-gradient(135deg, #E6C288 0%, #B8862E 50%, #96681C 100%)',
+            },
+            animation: {
+              'slow-spin': 'slow-spin 60s linear infinite',
+              'float': 'float 10s ease-in-out infinite',
+              'pulse-light': 'pulse-light 3s ease-in-out infinite',
+              'icon-glow': 'icon-glow 2s ease-in-out infinite',
+              'fade-up': 'fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slide-in': 'slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'scale-tap': 'scale-tap 0.1s ease-in-out',
+            },
+            keyframes: {
+              'slow-spin': {
+                'from': { transform: 'rotate(0deg)' },
+                'to': { transform: 'rotate(360deg)' },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                '50%': { transform: 'translateY(-20px) scale(1.05)' },
+              },
+              'pulse-light': {
+                '0%, 100%': { opacity: '0.5', filter: 'brightness(0.9)' },
+                '50%': { opacity: '1', filter: 'brightness(1.5)', textShadow: '0 0 15px rgba(184,134,46,0.6)' },
+              },
+              'icon-glow': {
+                '0%, 100%': { opacity: '1', filter: 'drop-shadow(0 0 2px rgba(184,134,46,0.3)) brightness(1)' },
+                '50%': { opacity: '0.7', filter: 'drop-shadow(0 0 12px rgba(184,134,46,0.8)) brightness(1.3)' },
+              },
+              'fade-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'slide-in': {
+                '0%': { opacity: '0', transform: 'translateY(10px) scale(0.98)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              'scale-tap': {
+                '0%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(0.97)' },
+                '100%': { transform: 'scale(1)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --safe-top: env(safe-area-inset-top);
+        --safe-bottom: env(safe-area-inset-bottom);
+      }
+      
+      html {
+        font-size: 14px; /* Slightly reduced base font size to scale rem units down */
+      }
+
+      * {
+        -webkit-tap-highlight-color: transparent; /* Remove blue highlight on tap */
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Cairo', 'Outfit', sans-serif;
+        background-color: #050505;
+        color: #ffffff;
+        /* Native App Feel settings */
+        user-select: none; /* Prevent text selection like apps */
+        -webkit-user-select: none;
+        overscroll-behavior-y: none; /* Prevent pull-to-refresh bounce */
+        overflow-x: hidden;
+      }
+
+      .font-serif-headings {
+        font-family: 'Playfair Display', 'Cairo', serif;
+      }
+
+      .text-gold-gradient {
+        background: linear-gradient(to right, #F3DFC1, #D4A04F, #F3DFC1);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        animation: shine 5s linear infinite;
+      }
+
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
+      
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge and Firefox */
+      body {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Safe Area Utilities */
+      .pb-safe { padding-bottom: var(--safe-bottom); }
+      .pt-safe { padding-top: var(--safe-top); }
+      .pl-safe { padding-left: env(safe-area-inset-left); }
+      .pr-safe { padding-right: env(safe-area-inset-right); }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-easy-crop": "https://esm.sh/react-easy-crop@^5.2.0",
+    "otpauth": "https://esm.sh/otpauth@9.2.1",
+    "qrcode": "https://esm.sh/qrcode@1.5.3",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js",
+    "firebase/": "https://esm.sh/firebase@^12.9.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
